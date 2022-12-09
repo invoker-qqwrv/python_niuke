@@ -133,9 +133,9 @@ F 0
 第二行输入字符串表示密码。
 输出描述：
 登录成功输出"Welcome!"，登录失败输出"user id or password is not correct!"'''
-name = input()
-passwd = input()
-if name == 'admis' and passwd == 'Nowcoder666':
-    print('Welcome!')
-else:
-    print('user id or password is not correct!')
+# name = input()
+# passwd = input()
+# if name == 'admis' and passwd == 'Nowcoder666':
+#     print('Welcome!')
+# else:
+#     print('user id or password is not correct!')
