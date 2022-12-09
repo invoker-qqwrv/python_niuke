@@ -91,4 +91,49 @@ NP83 错误出现的次数
 # print(list.count('0'))
 
 '''NP84 列表中第一次出现的位置
+描述
+牛客网有一个打卡系统，记录了每个人这一个星期上班打卡的记录（以名字的形式）。
+牛牛想知道自己在这一个星期是第几个打卡的人，你用将这份名字记录转换为列表，然后使用index函数找到'NiuNiu'的位置吗？
+输入描述：
+输入一行字符串表示打卡人的姓名，以空格间隔，字符串中必定有'NiuNiu'。
+输出描述：
+输出'NiuNiu'第一次打卡是第几个，从0开始计数。
 '''
+# list=input().split()
+# for i in list:
+#     if i=='NiuNiu':
+#         print(list.index(i))
+#
+# list=input().split()
+# print(list.index('NiuNiu'))
+'''NP85 字符的类型比较
+Python有内置函数isalpha、isdigit、isspace可以分别判断字符串
+是否只包含字母、数字、空格，现在输入一个字符串，请分别输出这三个函数的判断结果。
+输入描述：
+输入一个字符串。
+输出描述：
+分三行依次输出上述三个函数的判断结果。
+'''
+# s = input()
+# print(s.isalpha())
+# print(s.isdigit())
+# print(s.isspace())
+
+'''NP86 字符子串的查找
+牛客网公布中奖信息了，中奖信息是一个很长的字符串，牛牛想知道自己的名字
+（'NiuNiu'）有没有出现在其中，你能帮助他使用字符串的find函数查找一下吗？
+输入描述：
+输入一个长字符串long_str表示中奖信息。
+输出描述：
+输出'NiuNiu'在long_str中第一次出现的位置，没有则输出-1.
+'''
+# long_str=input()
+# print(long_str.find('NiuNiu'))
+
+#也可以用try的方式做这个题
+# long_str=input()
+# try:
+#     print(long_str.index('NiuNiu'))
+#     pass
+# except ValueError:
+#     print('-1')
