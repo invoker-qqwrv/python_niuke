@@ -57,22 +57,94 @@
 # n object oriented programming, it is known as a constructor.
 # The __init__ method can be called when an object is created from
 # the class, and access is required to initialize the attributes of the class
-class Student():#建立student类并进行初始化与信息打印
-    def __init__(self,name,number,grade,level):
-        self.name = name
-        self.number = number
-        self.grade = grade
-        self.level = level
-        self.times = len(level.split(' '))#这个是干嘛的
+# class Student():#建立student类并进行初始化与信息打印
+#     def __init__(self,name,number,grade,level):
+#         self.name = name
+#         self.number = number
+#         self.grade = grade
+#         self.level = level
+#         self.times = len(level.split(' '))#这个是干嘛的
+#         pass
+#
+#     # __str__方法用于返回对象的描述信息，如果不使用__str__方法，直接print，或者return，返回的是对象的内存地址。
+#     def p(self):
+#         return "{}'s student number is {}, and his grade is {}. He submitted {} assignments, each with a grade of {}".format(self.name,self.number,self.grade,self.times,self.level)
+#
+# name = input()
+# number = input()
+# grade = int(input())
+# level = input()
+# student = Student(name, number, grade, level)
+# print(student.p())
+
+# https://zhuanlan.zhihu.com/p/30024792 类属性
+# class Circle(object):  # 创建Circle类，Circle为类名
+#    pass  # 此处可添加属性和方法
+# 在定义 Circle 类时，可以为 Circle 类添加一个特殊的 __init__() 方法，当创建实例时，__init__() 方法被自动调用为创建的实例增加实例属性。
+# class Circle(object):  # 创建Circle类
+#    def __init__(self, r): # 初始化一个属性r（不要忘记self参数，他是类下面所有方法必须的参数）
+#        self.r = r  # 表示给我们将要创建的实例赋予属性r赋值
+# 注意：__init__() 方法的第一个参数必须是 self（self代表类的实例，可以用别的名字，但建议使用约定成俗的self），后续参数则可以自由指定，
+# 和定义函数没有任何区别。
+# circle1 = Circle(1)  # 创建实例时直接给定实例属性，self不算在内
+# circle2 = Circle(2)
+# print(circle1.r)  # 实例名.属性名 访问属性
+# print(circle2.r)  # 我们调用实例属性的名称就统一了
+# 注意：实例名.属性名 circle1.r 访问属性，是我们上面Circle类__init__() 方法中 self.r 的 r 这个实例属性名，
+# 而不是__init__(self, r)方法中的 r 参数名，如下更加容易理解：
+
+# class Circle(object):  # 创建Circle类
+#    def __init__(self, R):  # 约定成俗这里应该使用r，它与self.r中的r同名
+#        self.r = R
+
+# circle1 = Circle(1)
+# print(circle1.r)  #我们访问的是小写r
+# 面试喜欢问的问题：创建类时，类方法中的self是什么？
+# self 代表类的实例，是通过类创建的实例 (注意，在定义类时这个实例我们还没有创建，它表示的我们使用类时创建的那个实例)
+# 实例属性每个实例各自拥有，互相独立，而类属性有且只有一份。实例属性访问优先级比类属性高，所以我们访问时优先访问实例属性，
+# 它将屏蔽掉对类属性的访问。
+
+'''NP98 修改属性1
+请为牛客网的员工创建一个Employee类，包括属性有姓名（name）、（salary），并设置初始化。
+同时该类包括一个方法printclass，用于输出类似'NiuNiu‘s salary is 4000, and his age is 22'的语句。
+请根据输入的name与salary为该类创建实例e，并调用printclass方法输出信息，如果没有年龄信息则输出错误信息"Error! No age"。
+根据输入的年龄为实例e直接添加属性age等于输入值，再次调用printclass方法输出信息。（printclass方法中建议使用try...except...结构）
+输入描述：
+三行分别输入姓名name、工资salary、年龄age，其中第一个为字符串，后两个为整型数字。
+输出描述：
+根据描述输出错误信息或是打印信息。
+'''
+# class Employee(object):
+#     def __init__(self,name,salary):
+#         self.name=name
+#         self.salary=salary
+#         pass
+#     def printclass(self):
+#         try:
+#             print(f"{self.name}‘s salary is {self.salary}, and his age is {self.age}")
+#             pass
+#         except:
+#             print("Error! No age")
+# e = Employee(input(), input())#here print name and
+# e.printclass()#输出printclass。检验是否报错
+# e.age = input()#添加实例age
+# e.printclass()
+
+'''
+NP99 修改属性2
+请为牛客网的员工创建一个Employee类，包括属性有姓名（name）、（salary），并设置初始化。
+同时该类包括一个方法printclass，用于输出类似'NiuNiu‘s salary is 4000, and his age is 22'的语句。
+请根据输入的信息为Employee类创建一个实例e，调用hasattr方法检验实例有没有属性age，
+如果存在属性age直接调用printclass输出，否则使用setattr函数为其添加属性age，并设置值为输入后，再调用printclass输出。
+输入描述：
+三行分别依次输入姓名name、工资salary、年龄age，其中第一行为字符串，后两行为整型数字。
+输出描述：
+第一行输出e有没有属性age，True或者False；
+第二行输出printclass打印信息。'''
+
+class Employee(object):
+    def __init__(self,name,salary):
+        self.name=name
+        self.salary=salary
         pass
-
-    # __str__方法用于返回对象的描述信息，如果不使用__str__方法，直接print，或者return，返回的是对象的内存地址。
-    def p(self):
-        return "{}'s student number is {}, and his grade is {}. He submitted {} assignments, each with a grade of {}".format(self.name,self.number,self.grade,self.times,self.level)
-
-name = input()
-number = input()
-grade = int(input())
-level = input()
-student = Student(name, number, grade, level)
-print(student.p())
+    def printclass(self):
