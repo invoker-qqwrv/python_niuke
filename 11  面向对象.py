@@ -142,9 +142,93 @@ NP99 修改属性2
 第一行输出e有没有属性age，True或者False；
 第二行输出printclass打印信息。'''
 
-class Employee(object):
-    def __init__(self,name,salary):
-        self.name=name
-        self.salary=salary
-        pass
-    def printclass(self):
+# class Employee(object):
+#     def __init__(self,name,salary):
+#         self.name=name
+#         self.salary=salary
+#         pass
+#     def printclass(self):
+#         print(f"{self.name}‘s salary is {self.salary}, and his age is {self.age}")
+# # hasattr() 函数用于判断对象是否包含对应的属性。
+# # getattr() 函数获取属性。
+# # setattr() 函数用于设置属性值，若该属性不存在则创建新属性
+# name=input()
+# salary=input()
+# age=int(input())
+# e = Employee(name,salary)
+# if hasattr(e,'age'):#e中是否有age，判断
+#     print(True)
+#     pass
+# else:
+#     setattr(e,'age',age)#设置属性和属性值
+#     print(False)
+#     pass
+# e.printclass()
+'''NP100 重载运算
+请创建一个Coordinate类表示坐标系，属性有x和y表示横纵坐标，并为其创建初始化方法__init__。
+请重载方法__str__为输出坐标'(x, y)'。
+请重载方法__add__，更改Coordinate类的相加运算为横坐标与横坐标相加，纵坐标与纵坐标相加，返回结果也是Coordinate类。
+现在输入两组横纵坐标x和y，请将其初始化为两个Coordinate类的实例c1和c2，并将坐标相加后输出结果。
+输入描述：
+第一行输入两个整数x1与y1，以空格间隔。
+第二行输入两个整数x2与y2，以空格间隔。
+输出描述：
+输出相加后的坐标。
+'''
+# class Coordinate(object):
+#     def __init__(self,x,y):
+#         self.x=x
+#         self.y=y
+# #关于__str__
+# # 当使用print输出对象的时候吗，默认输出内存地址
+# # 如果定义了__str__方法，就会打印次用这个方法中return的数据。
+# def __str__(self):
+#     print(self.x,self.y)#returns a new object that represents the sum of two objects
+#     pass
+# def __add__(self,Coordinate1):
+#     return Coordinate(self.x+Coordinate1.self.y+Coordinate1.y)
+#     pass
+# x1,y1=map(int,input().split())
+# x2,y2=map(int,input().split())
+# c1 = Coordinate(x1,y1)
+# c2 = Coordinate(x2,y2)
+# c3 = c1.__add__(c2)
+# print(c3)
+
+
+# class Coordinate():
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def __str__(self):
+#         print((self.x, self.y))
+#
+#     def __add__(self):
+#         self.x = x1 + x2
+#         self.y = y1 + y2
+#
+#
+# x1, y1 = map(int, input().split())  # 1.输入第一行两个数字
+# x2, y2 = map(int, input().split())  # 1.输入第二行两个数字
+#
+# c1 = Coordinate(x1, y1)  # 2. 调用类
+# c1.__add__()  # 3. 调用__add__()函数，实现两组数据分别对应相加
+# c1.__str__()  # 4. 调用__str__()函数，打印(相加之后的x, 相加之后的y)
+
+
+class Coordinate(object):
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+    def __str__(self):
+        return f'({self.x}, {self.y})'
+    def __add__(self,other):
+        return Coordinate(self.x+other.x,self.y+other.y)
+
+
+x1,y1 = list(map(int,input().split()))
+x2,y2 = list(map(int,input().split()))
+c1 = Coordinate(x1,y1)
+c2 = Coordinate(x2,y2)
+print(c1+c2)
