@@ -54,3 +54,25 @@
 第四行输入多个大写字母表示每次作业等级，用空格间隔。
 输出描述：
 用一句话输出学生的姓名、学号、分数、提交作业的次数、每次作业的等级，可以参考输出样例。'''
+# n object oriented programming, it is known as a constructor.
+# The __init__ method can be called when an object is created from
+# the class, and access is required to initialize the attributes of the class
+class Student():#建立student类并进行初始化与信息打印
+    def __init__(self,name,number,grade,level):
+        self.name = name
+        self.number = number
+        self.grade = grade
+        self.level = level
+        self.times = len(level.split(' '))#这个是干嘛的
+        pass
+
+    # __str__方法用于返回对象的描述信息，如果不使用__str__方法，直接print，或者return，返回的是对象的内存地址。
+    def p(self):
+        return "{}'s student number is {}, and his grade is {}. He submitted {} assignments, each with a grade of {}".format(self.name,self.number,self.grade,self.times,self.level)
+
+name = input()
+number = input()
+grade = int(input())
+level = input()
+student = Student(name, number, grade, level)
+print(student.p())
